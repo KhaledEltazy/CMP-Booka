@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.sqldelightPlugin)
 }
 
 kotlin {
@@ -32,6 +33,19 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            // Ktor Android engine
+            implementation(libs.ktor.client.okhttp)
+
+            // SQLDelight Android driver
+            implementation(libs.sqldelight.android.driver)
+
+            // Coil (Android + Compose)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.okhttp)
+
+            // Koin Android + Compose
+            implementation(libs.koin.android)
+            implementation(libs.koin.compose)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -42,6 +56,18 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.navigation.compose)
+
+            // Ktor in common
+            implementation(libs.ktor.core)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.logging)
+
+            // SQLDelight runtime in common
+            implementation(libs.sqldelight.runtime)
+
+            // Koin core in common
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -49,6 +75,23 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+
+            // Ktor client for desktop
+            implementation(libs.ktor.client.cio)
+        }
+        iosMain.dependencies {
+            // SQLDelight native driver
+            implementation(libs.sqldelight.native.driver)
+            // (Ktor uses default engine for native via ktor-client-cio or Darwin)
+            implementation(libs.ktor.client.cio)
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("org.cmp.cmp_booka.cache")
         }
     }
 }
