@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.sqldelightPlugin)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -58,16 +59,29 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.navigation.compose)
 
+            // Serialization
+            implementation(libs.kotlinx.serialization.core)
+            implementation(libs.kotlinx.serialization.json)
+
             // Ktor in common
             implementation(libs.ktor.core)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.auth)
+            implementation(libs.ktor.client.websockets)
+            implementation(libs.ktor.resources)
 
             // SQLDelight runtime in common
             implementation(libs.sqldelight.runtime)
 
             // Koin core in common
             implementation(libs.koin.core)
+
+            //coil
+            implementation(libs.coil.compose)
+            implementation(libs.coil.mp)
+            implementation(libs.coil.network.ktor3)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
