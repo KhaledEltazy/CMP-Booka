@@ -1,6 +1,12 @@
 package org.cmp.cmp_booka.core.presentation
 
 import cmp_booka.composeapp.generated.resources.Res
+import cmp_booka.composeapp.generated.resources.error_disk_full
+import cmp_booka.composeapp.generated.resources.error_no_internet
+import cmp_booka.composeapp.generated.resources.error_request_timeout
+import cmp_booka.composeapp.generated.resources.error_serialization
+import cmp_booka.composeapp.generated.resources.error_too_many_requests
+import cmp_booka.composeapp.generated.resources.error_unknown
 import org.cmp.cmp_booka.core.domain.DataError
 
 fun DataError.toUiText(): UiText {
