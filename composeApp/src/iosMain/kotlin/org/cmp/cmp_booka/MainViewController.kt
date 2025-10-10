@@ -1,10 +1,11 @@
 package org.cmp.cmp_booka
 
-import androidx.compose.runtime.remember
 import androidx.compose.ui.window.ComposeUIViewController
+import org.cmp.cmp_booka.di.initKoin
 
-fun MainViewController() = ComposeUIViewController { App(
-    engine = remember {
-        Darwin.create()
+fun MainViewController() {
+    initKoin()
+    ComposeUIViewController {
+        App()
     }
-) }
+}

@@ -78,6 +78,8 @@ kotlin {
 
             // Koin core in common
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            api(libs.koin.core)
 
             //coil
             implementation(libs.coil.compose)
