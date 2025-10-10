@@ -93,12 +93,14 @@ kotlin {
 
             // Ktor client for desktop
             implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.okhttp)
         }
         iosMain.dependencies {
             // SQLDelight native driver
             implementation(libs.sqldelight.native.driver)
             // (Ktor uses default engine for native via ktor-client-cio or Darwin)
             implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

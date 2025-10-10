@@ -125,7 +125,7 @@ fun BookListItem(
                     )
                 }
 
-                book.averageReading?.let { rating ->
+                book.averageRating?.let { rating ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
