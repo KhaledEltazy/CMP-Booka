@@ -5,7 +5,7 @@ import org.cmp.cmp_booka.book.domain.Book
 
 fun SearchedBookDto.toBook() : Book{
     return Book(
-        id = id,
+        id = id.substringAfterLast("/"),
         title = title,
         imgUrl =  if(coverKey != null) {
             "https://covers.openlibrary.org/b/olid/${coverKey}-L.jpg"

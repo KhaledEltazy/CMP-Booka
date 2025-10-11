@@ -47,6 +47,7 @@ kotlin {
             // Koin Android + Compose
             implementation(libs.koin.android)
             implementation(libs.koin.compose)
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -78,9 +79,7 @@ kotlin {
 
             // Koin core in common
             implementation(libs.koin.core)
-            implementation(libs.koin.compose)
             api(libs.koin.core)
-
             //coil
             implementation(libs.coil.compose)
             implementation(libs.coil.mp)
@@ -96,6 +95,9 @@ kotlin {
             // Ktor client for desktop
             implementation(libs.ktor.client.cio)
             implementation(libs.ktor.client.okhttp)
+
+            //koin
+            implementation(libs.koin.core)
         }
         iosMain.dependencies {
             // SQLDelight native driver
